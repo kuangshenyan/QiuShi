@@ -76,7 +76,7 @@ class QSBK:
             pattern = re.compile('<div class="content">.*?<span>(.*?)</span>.*?</div>', re.S)
             dataStr = str(item)
             # print(dataStr)
-            info = re.findall(pattern, dataStr)[0].replace('<br/>', '\n').replace('\n', '')
+            info = re.findall(pattern, dataStr)[0].replace('\n', '').replace('<br/>', '\n')
             if "main-text" in dataStr:
                 shenpingPattern = re.compile('<div class="main-text">(.*?)<div class="likenum">', re.S)
                 pinglun = re.findall(shenpingPattern, dataStr)
