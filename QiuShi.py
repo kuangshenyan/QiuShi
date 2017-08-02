@@ -76,11 +76,11 @@ class QSBK:
             pattern = re.compile('<div class="content">.*?<span>(.*?)</span>.*?</div>', re.S)
             dataStr = str(item)
             # print(dataStr)
-            info = re.findall(pattern, dataStr)[0].replace('<br/>', '\n')
+            info = re.findall(pattern, dataStr)[0].replace('<br/>', '\n').replace('\n', '')
             if "main-text" in dataStr:
                 shenpingPattern = re.compile('<div class="main-text">(.*?)<div class="likenum">', re.S)
                 pinglun = re.findall(shenpingPattern, dataStr)
-                shenping += pinglun[0].replace('\n', '')[1:]
+                shenping += pinglun[0].replace('\n', '')
             else:
                 shenping += "无神评论"
             # print(str(info) + '\n' + shenping)
@@ -114,7 +114,7 @@ class QSBK:
             if inpt == 'q':
                 self.enable = False
                 return
-            print(u'第%d页\t%s\n' % (page, story))
+            print(u'第%d页\t%s' % (page, story))
 
     def start(self):
         print(u'正在读取糗事百科，按回车查看新段子，输入q退出')
