@@ -87,7 +87,6 @@ class QSBK:
             pageStories.append(str(info) + '\n' + shenping)
         return pageStories
 
-
     # 加载并提取页面内容，加入到列表中
     def loadPage(self):
         # 如果当前未看的页数少于2，则加载新一页
